@@ -50,9 +50,6 @@ En cas d'anomalie qualité, le chargement est bloqué et l'anomalie est tracée 
                         +-------------------------+
 
 Les 3 chaînes (une par ville) s'exécutent en parallèle.
-
-[toutes les tâches] >> alert_on_failure (trigger: one_failed)
-[toutes les tâches] >> log_execution (trigger: all_done)
 ```
 
 ## Structure du projet
@@ -231,7 +228,7 @@ Contrainte d'unicité : `(ville, heure)`, ce qui garantit l'idempotence.
 ### Contenu du log d'exécution global
 ![Log d'exécution global](./img/11_log_ingestion_complete.png)
 
-## Limites éventuelles du travail rendu
+## Limites
 
 - La simulation d'anomalie qualité nécessite une modification manuelle du code (`simulate_anomaly` dans `quality.py`). En production, ce serait déclenché par des données réellement invalides.
 - L'API Open-Meteo retourne toujours des données valides dans des conditions normales, les anomalies qualité ne peuvent être démontrées que par simulation.
